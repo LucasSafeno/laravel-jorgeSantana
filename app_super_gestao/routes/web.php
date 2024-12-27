@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-
-
 Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
 
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
@@ -45,6 +43,12 @@ Route::prefix('/app')->group(function () {
 
 
 
+Route::get('/rota1', function () {
+    echo 'rota 1'; })->name('site.rota1');
+Route::get('/rota2', function () {
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
+//Route::redirect('/rota2', '/rota1');
 
 // Route::get('/contato/{nome}/{categoria_id}', function (
 //     string $nome,
