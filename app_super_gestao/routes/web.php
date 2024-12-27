@@ -22,26 +22,17 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal']);
-
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato']);
+Route::get('/sobre-nos',[\App\Http\Controllers\SobreNosController::class, 'sobreNos']);
 
 
-Route::get('/contato/{nome}/{categoria_id}', function (
-    string $nome,
-    int $categoria_id = 1
-    ) {
+// Route::get('/contato/{nome}/{categoria_id}', function (
+//     string $nome,
+//     int $categoria_id = 1
+//     ) {
 
-    echo "Estamos aqui " . $nome . " - " . $categoria_id;
-    })->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
-
-
-
-
-
-
-
-
-
+//     echo "Estamos aqui " . $nome . " - " . $categoria_id;
+//     })->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
 
 //? Valores padrões/opicionais devem ser declarados da direita para esquerda
 // Route::get(
@@ -54,10 +45,6 @@ Route::get('/contato/{nome}/{categoria_id}', function (
 //         {
 //         echo "Estamos aqui - " . $nome . " - Categoria  : " . $categoria . $assunto . $mensagem;
 //         });
-
-Route::get('/sobre-nos',[\App\Http\Controllers\SobreNosController::class, 'sobreNos']);
-
-
 
 // Route::get('/sobre-nos', function () {
 //     return 'Sobre nós';
