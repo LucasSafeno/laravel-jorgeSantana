@@ -1,20 +1,18 @@
 <h3>Fornecedor</h3>
 
-{{-- comentario blade--}}
+{{-- BLADE --}}
 
-{{'texto de teste'}}
+{{--@dd($fornecedores)--}}
 
-<?= 'Texto de teste' ?>
+@if(count($fornecedores) > 0 && count($fornecedores) < 10)
+    
+        <h3>Existem alguns fornecedores cadastrados</h3>
+    
+    @elseif(count($fornecedores) > 10)
+    
+        <h3>Existem vários fornecedores cadastrados</h3>
 
+    @else 
+        <h3>Ainda não existem fornecedores cadastrados</h3>
 
-{{--Incluir blocos de PHP puros--}}
-@php
-    // comentaŕio de uma linha 
-
-
-    /**
-        Comentários de mais de uma linha
-    */
-
-    echo "echo dentro do PHP puro";
-@endphp
+@endif
