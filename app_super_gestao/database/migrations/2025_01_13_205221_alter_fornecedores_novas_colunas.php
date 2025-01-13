@@ -23,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('fornecedores', function (Blueprint $table) {
+            // deletar colunas
+            //$table->dropColumns('uf');
+            $table->dropColumn(['uf', 'email']);
+        });
     }
 };
