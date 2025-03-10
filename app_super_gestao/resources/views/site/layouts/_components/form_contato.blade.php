@@ -2,7 +2,7 @@
                 {{$slot}}
                 <form action={{route('site.contato')}} method="POST" >
                     @csrf
-                        <input name="nome" type="text" placeholder="Nome" class="{{$classe}}">
+                        <input name="name" type="text" placeholder="Nome" class="{{$classe}}">
                         <br>
                         <input name="telefone" type="text" placeholder="Telefone" class="{{$classe}}">
                         <br>
