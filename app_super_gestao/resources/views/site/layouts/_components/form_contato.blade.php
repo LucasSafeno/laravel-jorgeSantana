@@ -4,7 +4,7 @@
 
     <input name="name" value="{{old('name')}}" type="text" placeholder="Nome" class="{{$classe}}">
     @if ($errors->has('name'))
-        {{$errors->first('name')}}
+    {{$errors->first('name')}}
     @endif
     <br>
 
@@ -28,18 +28,7 @@
     <br>
     <textarea name="mensagem"
         class="{{$classe}}">{{ (old('mensagem' != '')) ? old('mensagem') : 'Preencha aqui sua mensagem'  }}</textarea>
-        {{ $errors->has('mensagem') ? $errors->first('mensagem') : '' }}
+    {{ $errors->has('mensagem') ? $errors->first('mensagem') : '' }}
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
-
-
-@if($erros->any())
-<div style="position: absolute; top: 0px; left: 0px; width: 100%; background-color: red;">
-    @foreach ($errors->all() as  $erro)
-        {{ $erro }}
-        <br>
-    @endforeach
-</div>
-
-@endif
