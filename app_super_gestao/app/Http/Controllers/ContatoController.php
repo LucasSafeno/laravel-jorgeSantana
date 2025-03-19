@@ -22,7 +22,7 @@ class ContatoController extends Controller
     {
         // realizar validação dos dados do formulário
         $request->validate([
-            'name' => 'required|min:3|max:40',
+            'name' => 'required|min:3|max:40|unique:site_contatos',
             'telefone' => 'required',
             'email' => 'email',
             'motivo_contatos_id' => 'required',
