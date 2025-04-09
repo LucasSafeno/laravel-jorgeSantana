@@ -25,6 +25,8 @@ class LogAcessoMiddleware
 
         LogAcesso::create(['log' => "$ip XYZ Requisitou a rota  $rota"]);
 
-        return Response('Rodou no drone gatinha');
+        return $next($request);
+
+        //return Response('Rodou no drone gatinha');
     }
 }
