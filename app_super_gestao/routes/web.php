@@ -40,22 +40,16 @@ Route::get('/login', function () {
 
 
 //? Agrupamento de rotas - app
-Route::prefix('/app')->group(function () {
-    Route::middleware('log.acesso', 'autenticacao')
-        ->get('/clientes', function () {
-            return 'Clientes';
-        })
-        ->name('app.clientes');
+Route::middleware('autenticacao')->prefix('/app')->group(function () {
+    Route::get('/clientes', function () {
+        return 'Clientes';
+    })->name('app.clientes');
 
-    Route::middleware('autenticacao')
-        ->get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])
-        ->name('app.fornecedores');
+    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
 
-    Route::middleware('log.acesso', 'autenticacao')
-        ->get('/produtos', function () {
-            return 'Produtos';
-        })
-        ->name('app.produtos');
+    Route::get('/produtos', function () {
+        return 'Produtos';
+    })->name('app.produtos');
 
 });
 
