@@ -21,19 +21,16 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])
+Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])
     ->name('site.index');
 
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])
+Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])
     ->name('site.contato');
 
 
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('site.contato');
 
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
+Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
     ->name('site.sobrenos');
 
 Route::get('/login', function () {
