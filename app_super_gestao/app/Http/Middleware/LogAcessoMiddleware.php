@@ -25,6 +25,6 @@ class LogAcessoMiddleware
 
         LogAcesso::create(['log' => "$ip XYZ Requisitou a rota  $rota"]);
 
-        return Response('Chegamos no middleware e finalizamos no proprio middleware');
+        return Response('Rodou no drone gatinha');
     }
 }

@@ -32,7 +32,9 @@ Route::middleware(LogAcessoMiddleware::class)
 
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('site.contato');
 
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
+Route::middleware(LogAcessoMiddleware::class)
+    ->get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
+    ->name('site.sobrenos');
 
 Route::get('/login', function () {
     return 'Login';
