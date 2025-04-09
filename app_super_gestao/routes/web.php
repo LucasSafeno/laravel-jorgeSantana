@@ -47,7 +47,7 @@ Route::prefix('/app')->group(function () {
         })
         ->name('app.clientes');
 
-    Route::middleware('log.acesso', 'autenticacao')
+    Route::middleware('autenticacao')
         ->get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])
         ->name('app.fornecedores');
 
