@@ -16,28 +16,12 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next, $meteodo_autenticacao, $perfil): Response
     {
 
-        echo $meteodo_autenticacao . ' - ' . $perfil . "<br>";
+        session_start();
 
-        if ($meteodo_autenticacao == 'padrao') {
-            echo "verificar usuário e senha no banco de dados $perfil <br>";
-        }
-
-        if ($meteodo_autenticacao == 'ldap') {
-            echo "Verificar usuário e senha no AD $perfil <br>";
-        }
-
-
-        if ($perfil == 'visitante') {
-            echo "Exibir apenas alguns recursos";
-        } else {
-            echo "Carregar o perfil do banco de dados";
-        }
-
-
-        if (false) {
+        if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
         } else {
-            return Response("Acesso negado. Rota exige autenticação!!!");
+            return redirect()->route('site.login', ['error' => 2]);
         }
 
 
