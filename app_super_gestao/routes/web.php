@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Middleware\LogAcessoMiddleware;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 /** 
  * * Verbos http
@@ -34,9 +35,8 @@ Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
     ->name('site.sobrenos');
 
-Route::get('/login', function () {
-    return 'Login';
-})->name('site.login');
+Route::get('/login', [LoginController::class, 'index'])->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 
 //? Agrupamento de rotas - app
