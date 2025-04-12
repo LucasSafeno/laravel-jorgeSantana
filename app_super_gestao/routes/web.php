@@ -1,8 +1,18 @@
 <?php
 
 use GuzzleHttp\Middleware;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\FornecedorController;
+
+
 use App\Http\Middleware\LogAcessoMiddleware;
 
 /** 
@@ -22,17 +32,17 @@ use App\Http\Middleware\LogAcessoMiddleware;
 // });
 
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])
+Route::get('/', [PrincipalController::class, 'principal'])
     ->name('site.index')
     ->middleware('log.acesso');
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])
+Route::get('/contato', [ContatoController::class, 'contato'])
     ->name('site.contato');
 
 
-Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('site.contato');
+Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato');
 
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])
     ->name('site.sobrenos');
 
 Route::get('/login{error?}', [LoginController::class, 'index'])->name('site.login');
@@ -41,15 +51,12 @@ Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login'
 
 //? Agrupamento de rotas - app
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function () {
-    Route::get('/clientes', function () {
-        return 'Clientes';
-    })->name('app.clientes');
 
-    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
-
-    Route::get('/produtos', function () {
-        return 'Produtos';
-    })->name('app.produtos');
+    Route::get('/home', [HomeController::class, 'index'])->name('app.home');
+    Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
+    Route::get('/clientes', [ClientesController::class, 'index'])->name('app.clientes');
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');
+    Route::get('/produtos', [ProdutosController::class, 'index'])->name('app.produtos');
 
 });
 
