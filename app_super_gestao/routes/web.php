@@ -35,7 +35,7 @@ Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])
     ->name('site.sobrenos');
 
-Route::get('/login', [LoginController::class, 'index'])->name('site.login');
+Route::get('/login{error?}', [LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 
