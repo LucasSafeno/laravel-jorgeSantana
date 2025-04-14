@@ -205,3 +205,101 @@ span {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+
+* Corrige o tamanho das setas */ nav[aria-label="Pagination Navigation"] svg {
+    width: 20px;
+    height: 20px;
+}
+/* Estilos para a paginação */
+.flex.items-center.justify-between {
+    margin: 20px 0;
+}
+
+.relative.z-0.inline-flex {
+    display: inline-flex;
+}
+
+.relative.inline-flex.items-center {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+}
+
+.relative.inline-flex.items-center:hover {
+    background-color: #f5f5f5;
+}
+
+.relative.inline-flex.items-center[aria-current="page"] span {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Estilo para as setas SVG */
+.relative.inline-flex.items-center svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo para os links desabilitados */
+.relative.inline-flex.items-center.text-gray-500 {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Estilo para a navegação mobile */
+.flex.justify-between.flex-1.sm\\:hidden a {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    margin: 0 5px;
+}
+
+.flex.justify-between.flex-1.sm\\:hidden a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilo para o texto de informações */
+.text-sm.text-gray-700 {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+/* Estilo básico para os links de paginação */
+nav[aria-label="Pagination Navigation"] a,
+nav[aria-label="Pagination Navigation"] span {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav[aria-label="Pagination Navigation"] a:hover {
+    background-color: #f5f5f5;
+}
+
+nav[aria-label="Pagination Navigation"] span[aria-current="page"] {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Estilo para o texto de informações */
+.text-sm.text-gray-700 {
+    margin: 10px 0;
+    color: #666;
+}
