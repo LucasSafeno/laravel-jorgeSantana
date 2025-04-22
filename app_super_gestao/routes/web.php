@@ -6,14 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Middleware\LogAcessoMiddleware;
+
+
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\FornecedorController;
-
-
-use App\Http\Middleware\LogAcessoMiddleware;
 
 /** 
  * * Verbos http
@@ -67,8 +68,8 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::get('/fornecedores/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedores.excluir');
 
 
-    Route::get('/produtos', [ProdutosController::class, 'index'])->name('app.produtos');
-
+    // ? Produto
+    Route::resource('produto', ProdutoController::class);
 });
 
 
