@@ -13,8 +13,8 @@
         </div>
 
         <div class="menu">
-            <li><a href="{{route('app.fornecedores.adicionar')}}">Novo</a></li>
-            <li><a href="{{route('app.fornecedores')}}">Consulta</a></li>
+            <li><a href="{{route('produto.create')}}">Novo</a></li>
+            <li><a href="">Consulta</a></li>
         </div>
 
         <div class="informacao-pagina">
@@ -26,8 +26,8 @@
                             <th>Descrição</th>
                             <th>Peso</th>
                             <th>Unidade ID</th>
-                            <th></th>
-                            <th></th>
+                            
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +37,8 @@
                                 <td>{{$produto->descricao}}</td>
                                 <td>{{$produto->peso}}</td>
                                 <td>{{$produto->unidade_id}}</td>
-                                <td></td>
-                                <td></td>
+                                <td><a href="">Editar</a></td>
+                                <td><a href="">Excluir</a></td>
                             </tr>
                         @endforeach
                     </tbody>
