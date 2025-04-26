@@ -81,7 +81,12 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        // $request->all(); // payload
+        // $produto; // instancia do objeto antes do payload
+
+        $produto->update($request->all());
+
+        return redirect()->route('produto.show', ['produto' => $produto->id]);
     }
 
     /**

@@ -20,9 +20,10 @@
         <div class=" informacao-pagina">
 
                 <div style="width:30%; margin-left: auto; margin-right: auto; ">
-                    <form action="" method="post">
+                    <form action="{{route('produto.update', ['produto' => $produto->id])}}" method="post">
                         
                         @csrf
+                        @method('PUT')
 
                         <input type="text" value="{{$produto->nome ?? old(key: 'nome')}}" name="nome" id="nome" class="borda-preta" placeholder="Nome">
                         {{$errors->has('nome') ? $errors->first('nome') : ''}}
@@ -32,7 +33,7 @@
                             placeholder="Descrição">
                             {{$errors->has('descricao') ? $errors->first('descricao') : ''}}
 
-                        <input type="text" value="{{$produto->peso ??old(key: 'peso')}}" name="peso" id="peso" class="borda-preta" placeholder="Peso">
+                        <input type="text" value="{{$produto->peso ?? old(key: 'peso')}}" name="peso" id="peso" class="borda-preta" placeholder="Peso">
                         {{$errors->has('peso') ? $errors->first('peso') : ''}}
 
                         
@@ -47,7 +48,7 @@
                         </select>
                         {{$errors->has('unidade_id') ? $errors->first('unidade_id') : ''}}
 
-                        <button type="submit" class="borda-preta">Cadastrar</button>
+                        <button type="submit" class="borda-preta">Editar</button>
                     </form>
                 </div>
     </div>
