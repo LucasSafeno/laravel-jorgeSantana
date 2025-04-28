@@ -17,11 +17,11 @@ class FornecedorController extends Controller
     {
 
 
-        $fornecedores = Fornecedor::where('nome', 'like', '%' . $request->input('nome') . '%')
+        $fornecedores = Fornecedor::with(['produtos'])->where('nome', 'like', '%' . $request->input('nome') . '%')
             ->where('site', 'like', '%' . $request->input('site') . '%')
             ->where('uf', 'like', '%' . $request->input('uf') . '%')
             ->where('email', 'like', '%' . $request->input('email') . '%')
-            ->paginate(2);
+            ->paginate(5);
 
 
 
@@ -83,7 +83,7 @@ class FornecedorController extends Controller
 
 
         return view('app.fornecedor.adicionar', ['msg' => $msg]);
-    }// adicionar
+    } // adicionar
 
 
     public function editar($id, $msg = '')
@@ -98,6 +98,5 @@ class FornecedorController extends Controller
     {
         Fornecedor::find($id)->delete();
         return redirect()->route('app.fornecedores');
-
     }
 }
