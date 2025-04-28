@@ -15,6 +15,7 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\ProdutoDetalheController;
 
 /** 
  * * Verbos http
@@ -70,6 +71,9 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
 
     // ? Produto
     Route::resource('produto', ProdutoController::class);
+
+    //? Produto Detalhes
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
 });
 
 
